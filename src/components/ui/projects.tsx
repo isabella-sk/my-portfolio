@@ -22,7 +22,7 @@ export function Projets() {
       icon: <IconTerminal2 />,
       techs: ["React", "Tailwind", "TypeScript"],
       image: "/mockup-portfolio.png",
-      github: "https://github.com/tonpseudo/portfolio",
+      github: "https://github.com/isabella-sk/my-portfolio",
       slug: "portfolio",
     },
     {
@@ -31,7 +31,7 @@ export function Projets() {
       icon: <IconEaseInOut />,
       techs: ["Symfony"],
       image: "/mockup-mytechblog.png",
-      github: "https://github.com/tonpseudo/blog-symfony",
+      github: "https://github.com/isabella-sk/mytechblog",
       slug: "blog",
     },
     {
@@ -41,7 +41,7 @@ export function Projets() {
       icon: <IconCurrencyDollar />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-garage.png",
-      github: "https://github.com/tonpseudo/site-garage",
+      github: "https://github.com/isabella-sk/projetGarage",
       slug: "garage",
     },
     {
@@ -50,7 +50,7 @@ export function Projets() {
       icon: <IconCloud />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-code.png",
-      github: "https://github.com/tonpseudo/projet4",
+      github: "https://github.com/isabella-sk",
       slug: "projet-4",
     },
     {
@@ -59,7 +59,7 @@ export function Projets() {
       icon: <IconCloud />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-code.png",
-      github: "https://github.com/tonpseudo/projet5",
+      github: "https://github.com/isabella-sk",
       slug: "projet-5",
     },
     {
@@ -68,7 +68,7 @@ export function Projets() {
       icon: <IconEaseInOut />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-code.png",
-      github: "https://github.com/tonpseudo/projet6",
+      github: "https://github.com/isabella-sk",
       slug: "projet-6",
     },
   ];
