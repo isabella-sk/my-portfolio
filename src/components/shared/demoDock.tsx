@@ -1,7 +1,6 @@
 'use client';
 
 import {
-    Component,
     HomeIcon,
     Mail,
     Sun,
@@ -22,17 +21,7 @@ const data = [
     {
         title: 'Projets',
         icon: <IconCode className="text-neutral-600 dark:text-neutral-300" />,
-        href: '/projects',
-    },
-    {
-        title: 'Compétences',
-        icon: <Component className="text-neutral-600 dark:text-neutral-300" />,
-        href: '/skills',
-    },
-    {
-        title: 'Expériences',
-        icon: <IconBriefcase className="text-neutral-600 dark:text-neutral-300" />,
-        href: '/activity',
+        href: '/projets',
     },
     {
         title: 'Contact',

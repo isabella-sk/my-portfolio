@@ -30,7 +30,7 @@ export default function RootLayout({
       <body className="relative flex flex-col min-h-screen text-foreground">
         <ThemeProvider>
           <BackgroundRadial />
-          <main className="flex-1 pb-48">{children}</main>
+          <main className="flex-1">{children}</main>
           <ApplyDock />
         </ThemeProvider>
       </body>
