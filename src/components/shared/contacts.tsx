@@ -50,7 +50,7 @@ export const ProfessionalConnect = () => {
       ),
       gradient: 'from-indigo-600 to-purple-600',
       shadowColor: 'rgba(99, 102, 241, 0.5)',
-      link: '#',
+      link: 'https://discord.com/users/1346072144722788414',
       description: 'Community Chat'
     }
   ];
@@ -60,7 +60,7 @@ export const ProfessionalConnect = () => {
       {/* Main Content */}
       <div className="relative z-10 flex flex-col items-center justify-center p-8">
         {/* Social Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {socialPlatforms.map((platform, index) => (
             <a
               key={platform.name}
