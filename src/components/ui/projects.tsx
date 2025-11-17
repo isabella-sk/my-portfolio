@@ -3,23 +3,21 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import {
-  IconCloud,
-  IconCurrencyDollar,
-  IconEaseInOut,
-  IconTerminal2,
+  IconDatabase,
+  IconCarGarage,
+  IconArticle,
+  IconUser,
   IconBrandGithub,
   IconArrowUpRight,
 } from "@tabler/icons-react";
 import { useState } from "react";
 
-export function Projets() {
-  const [visibleCount, setVisibleCount] = useState(4);
-
+export function Projets({ limit }: { limit?: number }) {
   const features = [
     {
       title: "Portfolio",
       description: "Concevoir mon portfolio avec React.",
-      icon: <IconTerminal2 />,
+      icon: <IconUser />,
       techs: ["React", "Tailwind", "TypeScript"],
       image: "/mockup-portfolio.png",
       github: "https://github.com/isabella-sk/my-portfolio",
@@ -28,7 +26,7 @@ export function Projets() {
     {
       title: "Blog",
       description: "Projet à réaliser en classe avec Symfony v.7",
-      icon: <IconEaseInOut />,
+      icon: <IconArticle />,
       techs: ["Symfony"],
       image: "/mockup-mytechblog.png",
       github: "https://github.com/isabella-sk/mytechblog",
@@ -38,17 +36,18 @@ export function Projets() {
       title: "Site garage",
       description:
         "Site de présentation pour un garage, avec gestion des véhicules et des services.",
-      icon: <IconCurrencyDollar />,
-      techs: ["PHP", "MySQL", "Bootstrap"],
+      icon: <IconCarGarage />,
+      techs: ["PHP", "MySQL", "Bootstrap", "Symfony"],
       image: "/mockup-garage.png",
       github: "https://github.com/isabella-sk/projetGarage",
       slug: "garage",
     },
     {
-      title: "Projet 4",
-      description: "We just cannot be taken down by anyone.",
-      icon: <IconCloud />,
-      techs: ["PHP", "MySQL", "Bootstrap"],
+      title: "Projet Data Science",
+      description:
+        "Projet Data Science à CODA : préparation des données, analyse exploratoire, visualisation et création de modèles prédictifs.",
+      icon: <IconDatabase />,
+      techs: ["Python", "NumPy", "Pandas", "Matplotlib", "Seaborn", "Plotly"],
       image: "/mockup-code.png",
       github: "https://github.com/isabella-sk",
       slug: "projet-4",
@@ -56,7 +55,7 @@ export function Projets() {
     {
       title: "Projet 5",
       description: "Un projet supplémentaire",
-      icon: <IconCloud />,
+      icon: <IconDatabase />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-code.png",
       github: "https://github.com/isabella-sk",
@@ -64,8 +63,9 @@ export function Projets() {
     },
     {
       title: "Projet 6",
-      description: "Site de présentation pour un garage, avec gestion des véhicules et des services.",
-      icon: <IconEaseInOut />,
+      description:
+        "Site de présentation pour un garage, avec gestion des véhicules et des services.",
+      icon: <IconArticle />,
       techs: ["PHP", "MySQL", "Bootstrap"],
       image: "/mockup-code.png",
       github: "https://github.com/isabella-sk",
@@ -73,8 +73,12 @@ export function Projets() {
     },
   ];
 
+  const initialCount = limit ?? features.length;
+  const [visibleCount, setVisibleCount] = useState(initialCount);
+
   const toggleVisible = () => {
-    setVisibleCount(visibleCount === 4 ? features.length : 4);
+    if (!limit) return;
+    setVisibleCount(visibleCount === limit ? features.length : limit);
   };
 
   return (
@@ -85,13 +89,13 @@ export function Projets() {
         ))}
       </div>
 
-      {features.length > 4 && (
+      {limit && features.length > limit && (
         <div className="flex justify-center mt-6">
           <button
             onClick={toggleVisible}
             className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition cursor-pointer"
           >
-            {visibleCount === 4 ? "Afficher plus" : "Afficher moins"}
+            {visibleCount === limit ? "Afficher plus" : "Afficher moins"}
           </button>
         </div>
       )}
@@ -136,7 +140,9 @@ const Feature = ({
       )}
 
       <div className="flex flex-col flex-grow pt-5">
-        <div className="mb-4 pl-6 text-purple-600 dark:text-purple-400">{icon}</div>
+        <div className="mb-4 pl-6 text-purple-600 dark:text-purple-400">
+          {icon}
+        </div>
 
         <div className="text-lg font-bold mb-2 relative z-10">
           <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-neutral-300 dark:bg-purple-400 group-hover/feature:bg-purple-600 transition-all duration-200 origin-center" />
@@ -150,7 +156,7 @@ const Feature = ({
         </p>
 
         {techs && techs.length > 0 && (
-          <div className="flex flex-wrap gap-2 pl-6 mb-4">
+          <div className="flex flex-wrap gap-2 px-6 mb-4">
             {techs.map((tech) => (
               <span
                 key={tech}
@@ -168,15 +174,16 @@ const Feature = ({
               href={github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex p-2 gap-1.5 items-center text-xs font-medium rounded-full text-white bg-gray-800 border  dark:hover:bg-white dark:hover:border-white dark:text-white dark:hover:text-black"
+              className="flex p-2 gap-1.5 items-center text-xs font-medium rounded-full text-white bg-gray-800 border dark:hover:bg-white dark:hover:border-white dark:text-white dark:hover:text-black"
             >
               <IconBrandGithub size={16} />
             </a>
           )}
+
           {slug && (
             <Link
               href={`/projets/${slug}`}
-              className="flex px-4 py-2 gap-1.5 items-center text-xs font-bold rounded-full text-purple-600 border border-purple-600 hover:bg-purple-600 hover:text-white  dark:text-purple-400 dark:border-purple-400 dark:hover:bg-purple-400 dark:hover:text-black transition"
+              className="flex px-4 py-2 gap-1.5 items-center text-xs font-bold rounded-full text-purple-600 border border-purple-600 hover:bg-purple-600 hover:text-white dark:text-purple-400 dark:border-purple-400 dark:hover:bg-purple-400 dark:hover:text-black transition"
             >
               Voir le projet
               <IconArrowUpRight size={16} />

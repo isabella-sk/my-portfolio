@@ -1,4 +1,4 @@
-import { ProfessionalConnect } from "@/src/components/shared/get-in-touch";
+import { ProfessionalConnect } from "@/src/components/shared/contacts";
 
 export default function DemoOne() {
     return (
